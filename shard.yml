@@ -1,0 +1,9 @@
+name: string_converter
+version: 0.1.0
+
+authors:
+  - z64 <zachnowicki@gmail.com>
+
+crystal: 0.20.5
+
+license: MIT
