@@ -6,9 +6,10 @@ module StringConverter
   {% for typ in [Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, Float32, Float64] %}
     class {{typ}}
       def self.from_json(parser) : ::{{typ}} | Nil
-        str = parser.read_string
+        str = parser.read_string_or_null
+        return nil unless str
 
-        ::{{typ}}.new str
+        ::{{typ}}.new str.as(String)
       rescue ArgumentError
         nil
       end
